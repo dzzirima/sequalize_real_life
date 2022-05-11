@@ -43,12 +43,7 @@ const Comments = db.define(
         isNull: false,
       },
     },
-    author: {
-      type: DataTypes.STRING,
-      validate: {
-        isNull: false,
-      },
-    },
+   
   },
   {
     timestamps: true,
@@ -81,10 +76,10 @@ Comments.belongsTo(Articles)
 Articles.hasMany(Comments)
 
 Comments.belongsTo(Users ,{as:"author"})
-Users.hasMany(Comments,{as:"author"})
+
 
 Articles.belongsTo(Users,{as:'author'})
-Users.hasMany(Articles,{as:'author'})
+
 
 
 /**many to many relationship */
