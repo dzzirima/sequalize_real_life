@@ -20,6 +20,11 @@ const Users = db.define("User", {
     primaryKey: true,
   },
   bio: DataTypes.STRING,
+  passwpord:{
+      type:DataTypes.STRING,
+      isNull:false
+
+  },
   image: {
     type: DataTypes.STRING,
     allowNull: true,
