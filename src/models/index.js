@@ -20,7 +20,7 @@ const Users = db.define("User", {
     primaryKey: true,
   },
   bio: DataTypes.STRING,
-  passwpord:{
+  password:{
       type:DataTypes.STRING,
       isNull:false
 

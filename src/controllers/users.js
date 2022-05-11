@@ -19,7 +19,7 @@ let createUser = async (userOpts) =>{
 
     try {
         const user = await Users.create({
-            userOpts
+            ...userOpts
         })
 
         if(!user){

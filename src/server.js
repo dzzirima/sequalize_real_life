@@ -12,7 +12,7 @@
  app.use('/api',apiRoutes)
 
 try {
-    await db.sync()   
+    await db.sync({alter:true})   
  app.listen(4000,()=>{
     console.log("Server started at port 4000")
 })
