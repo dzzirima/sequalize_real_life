@@ -1,0 +1,25 @@
+{
+  "name": "sequalize_real_world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzzirima/sequalize_real_life.git"
+  },
+  "author": "david t zirima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dzzirima/sequalize_real_life/issues"
+  },
+  "homepage": "https://github.com/dzzirima/sequalize_real_life#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.19.0"
+  }
+}
