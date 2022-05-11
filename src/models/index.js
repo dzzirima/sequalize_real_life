@@ -7,7 +7,7 @@ const db = new Sequelize('realworld_api','postgres','1311',{
 })
 
 
-const User = db.define('user',{
+const User = db.define('User',{
     email:{
         type:DataTypes.STRING,
         validate:{
@@ -28,9 +28,30 @@ const User = db.define('user',{
             isUrl:true
         }
     }
+})
 
+const comment = db.define("Comment", {
+    id:{
+        type:DataTypes.INTEGER,
+        autoIncrement:true,
+        primaryKey:true
 
+    },
+    body:{
+        type:DataTypes.STRING,
+        validate:{
+            isNull:false
+        }
+    },
+    author:{
+        type:DataTypes.STRING,
+        validate:{
+            isNull:false
+        }
+    }
 
+},{
+    timestamps:true
 })
 
 export default db
