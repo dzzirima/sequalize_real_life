@@ -1,6 +1,7 @@
 /**this is the controller function for all the user creation */
 
 import { Users } from "../models/index.js";
+import { createToken } from "../utils/jwt.js";
 
 let createUser = async (userOpts) => {
   if (!userOpts.username) {
@@ -24,7 +25,25 @@ let createUser = async (userOpts) => {
       throw new Error("Error creating user");
     }
 
-    return user;
+      /**selecting the partuclur fields from the user
+       * tokens are never stored in db
+       * we need to exclude some entities from the query
+       */
+    let createdUser = await Users.findOne({
+        attributes:['email','username','bio','image'],
+        where:{
+            username:user.username
+        }
+    })
+    const token = createToken(createdUser.get())
+/**.get will turn it into a plan json object */
+
+    
+
+    return {
+        ...createdUser.get(),
+        token
+    };
   } catch (error) {
     console.log(error);
   }
@@ -43,6 +62,7 @@ let verifyUser = async (userOpts) => {
     }
 
     const user = await Users.findOne({
+    attributes:['email','username','bio','image'],
       where: {
         email: userOpts.email,
       },
@@ -55,9 +75,17 @@ let verifyUser = async (userOpts) => {
     if (user.passord != userOpts.password) {
       throw new Error("Password does not match !!");
     }
+
+    /**removing the password password */
+    delete user.password
+
+    const token = await createToken(user.get())
     
 
-    return user;
+    return {
+        ...user.get(),
+        token
+    };
   
 };
 

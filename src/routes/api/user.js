@@ -19,8 +19,9 @@ route.post('/',async(req,res) =>{
         username:req.body.username,
         password:req.body.password,
         email:req.body.email
-
     })
+    
+  
 
     res.status(200).json({
         createdUser

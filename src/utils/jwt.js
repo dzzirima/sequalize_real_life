@@ -9,7 +9,7 @@ const createToken = async (user)=>{
 }
 
 
-const verifyToken = async (user) =>{
+const verifyToken = async (token) =>{
 
     const user = jwt.verify(token,JWT_SECRET)
     return user
