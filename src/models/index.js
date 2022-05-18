@@ -56,9 +56,10 @@ const Comments = db.define(
 );
 
 const Articles = db.define("article", {
-  slug: {
+  articleID: {
     type: Sequelize.STRING,
-    primaryKey: true,
+    primaryKey:true
+    
   },
   title: {
     type: Sequelize.STRING(50),
@@ -69,6 +70,7 @@ const Articles = db.define("article", {
   },
   body: Sequelize.STRING,
 });
+
 const Tags = db.define("tag", {
   name: {
     type: Sequelize.STRING,
