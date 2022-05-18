@@ -62,7 +62,7 @@ let verifyUser = async (userOpts) => {
     }
 
     const user = await Users.findOne({
-    attributes:['email','username','bio','image'],
+    attributes:['email','username','bio','image','password'],
       where: {
         email: userOpts.email,
       },
@@ -71,8 +71,11 @@ let verifyUser = async (userOpts) => {
     if (!user) {
       throw new Error("No user with given  email address");
     }
-
-    if (user.passord != userOpts.password) {
+  
+    
+    
+    // return console.log(user.password , userOpts.password)
+    if (user.password != userOpts.password) {
       throw new Error("Password does not match !!");
     }
 
