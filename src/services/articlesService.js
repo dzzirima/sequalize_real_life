@@ -17,9 +17,7 @@ export const getUserArticles = async (userID) => {
     console.log(userID)
   try {
     let userArticles = await Articles.findAll({
-        where:{
-            authorUsername:userID
-        }
+     include:Users
     });
 
    

@@ -92,4 +92,12 @@ let verifyUser = async (userOpts) => {
   
 };
 
+/**function to get the user and associated articles using lazy loading .... */
+
+let articlesAssociatedToUser = async(userID)=>{
+  
+
+
+}
+
 export { createUser, verifyUser };

@@ -86,6 +86,7 @@ Comments.belongsTo(Users ,{as:"author"})
 
 
 Articles.belongsTo(Users,{as:'author'})
+Users.hasMany(Articles)
 
 
 
