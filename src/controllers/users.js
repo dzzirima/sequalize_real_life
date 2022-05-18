@@ -62,7 +62,7 @@ let verifyUser = async (userOpts) => {
     }
 
     const user = await Users.findOne({
-    attributes:['email','username','bio','image','password'],
+    attributes:['email','username','bio','image','password','username'],
       where: {
         email: userOpts.email,
       },
