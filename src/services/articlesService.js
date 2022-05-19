@@ -16,12 +16,15 @@ export const createArticles = async (articleOpts) => {
 export const getUserArticles = async (userID) => {
     console.log(userID)
   try {
+    let userFound = await Users.findByPk(userID)
     let userArticles = await Articles.findAll({
      include:Users
     });
+    /**getting associated articles */
+    let associatedArticles = userFound.getArticles()
 
    
-    return userArticles;
+    return associatedArticles;
   } catch (error) {
     return error.message;
   }
